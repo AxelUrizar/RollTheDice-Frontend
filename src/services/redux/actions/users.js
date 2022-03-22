@@ -1,7 +1,25 @@
 const usersCalls = require('../../axios/usersCalls')
 
-export const ADD_USERS = 'ADD_USERS';
-export const USER_PROFILE = 'USER_PROFILE';
+export const ADD_USER = 'ADD_USER';
+export const FETCH_USERS = 'FETCH_USERS';
+
+
+export const fetchUsers = () => {
+    return (dispatch) => {
+        usersCalls.getUsers()
+            .then(res => {
+                console.log('hola')
+                dispatch(fetchUsersSuccess(res.data))
+            })
+            .catch(err => new Error(err))
+    }
+}
+            const fetchUsersSuccess = (users) => {
+                return {
+                    type: FETCH_USERS,
+                    payload: users
+                }
+            }
 
 export const addUser = (name, alias, email, password) => {
     return (dispatch) => {
@@ -15,12 +33,12 @@ export const addUser = (name, alias, email, password) => {
 }
             const addUserSuccess = (name, alias, email) => {
                 return {
-                    type: ADD_USERS,
+                    type: ADD_USER,
                     payload: {
                         name: name,
                         alias: alias,
                         email: email,
+                    
                     }
                 }
             }
-

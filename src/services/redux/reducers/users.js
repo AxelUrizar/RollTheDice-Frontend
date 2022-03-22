@@ -1,10 +1,11 @@
-import { ADD_USERS, USER_PROFILE } from "../actions/users";
+import { ADD_USER, FETCH_USERS } from "../actions/users";
 
-const initialState = [];
-
-const reducer = (state = initialState, action) => {
+const reducer = (state = [], action) => {
     switch (action.type) {
-        case ADD_USERS:
+        case FETCH_USERS:
+            return action.payload;
+
+        case ADD_USER:
             return [
                 ...state,
                 {
@@ -12,12 +13,11 @@ const reducer = (state = initialState, action) => {
                     alias: action.payload.alias,
                     email: action.payload.email
                 }
-            ]
-    
-        case USER_PROFILE:
-
+            ];
 
         default:
             return state
     }
 }
+
+export default reducer
