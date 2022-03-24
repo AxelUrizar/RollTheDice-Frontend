@@ -1,3 +1,25 @@
+:root{
+  --primario: rgb(61, 37, 80);
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none!important;
+  color: white!important;
+}
+
+body{
+  /* background: linear-gradient(150deg, rgb(33, 15, 100) 0%, rgb(81, 46, 102) 100%); */
+  /* background: linear-gradient(180deg, rgb(42, 17, 58) 0%, rgb(18, 14, 20) 100%); */
+  background-color: var(--primario)!important;
+  width: 100vw;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +57,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.content{
+  background-color: rgb(39, 39, 39);
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px -3px rgba(19, 19, 19, 0.94);
+  width: 95%;
 }

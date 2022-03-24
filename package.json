@@ -49,5 +49,8 @@
   "main": "index.js",
   "repository": "https://github.com/AxelUrizar/RollTheDice-Frontend.git",
   "author": "AxelUrizar <axelurizarmartin@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bootstrap": "^5.1.9"
+  }
 }
