@@ -1,8 +1,8 @@
 import axios from "axios";
 import authHeader from './auth-header'
 
-const API_URL = process.env.API_URL_START + 'users/';
-
+// const API_URL = process.env.API_URL_START + 'users/';
+const API_URL = 'http://localhost:2020/users/';
 
 export const signup = (name, alias, email, password) => {
     return axios.post(API_URL + 'newUser', {
@@ -18,6 +18,10 @@ export const login = (alias, password) => {
         alias: alias,
         password: password
     })
+}
+
+export const profile = () => {
+    return axios.get(API_URL + 'profile', {headers: authHeader()})
 }
 
 export const logout = () => {

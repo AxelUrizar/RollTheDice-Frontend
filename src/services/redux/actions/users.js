@@ -7,11 +7,8 @@ export const FETCH_USERS = 'FETCH_USERS';
 export const fetchUsers = () => {
     return (dispatch) => {
         usersCalls.getUsers()
-            .then(res => {
-                console.log('hola')
-                dispatch(fetchUsersSuccess(res.data))
-            })
-            .catch(err => new Error(err))
+            .then(res => dispatch(fetchUsersSuccess(res.data)))
+            .catch(err => console.log(err))
     }
 }
             const fetchUsersSuccess = (users) => {
@@ -28,7 +25,7 @@ export const addUser = (name, alias, email, password) => {
                 const user = res.data
                 dispatch(addUserSuccess(user.name, user.alias, user.email))
             })
-            .catch(err => new Error(err))
+            .catch(err => console.log(err))
     }
 }
             const addUserSuccess = (name, alias, email) => {
