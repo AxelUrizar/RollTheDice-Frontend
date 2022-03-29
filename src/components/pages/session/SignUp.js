@@ -9,14 +9,14 @@ const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [validatePasswords, setValidatePasswords] = useState(true)
+    const [validate, setValidate] = useState(true)
     const [submited, setSubmited] = useState(false)
     
     const dispatch = useDispatch()
     const users = useSelector(state => state.users)
 
+    const usuario = users.filter(user => user.alias === alias)
     useEffect(() => {
-        const usuario = users.filter(user => user.alias === alias)
         if(usuario.length > 0) setSubmited(true)
     },[users])
 
@@ -39,15 +39,17 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const userComprobation = users.filter(user => user.alias === alias || user.email === email)
 
-        if(password !== confirmPassword){
+        if(password !== confirmPassword || userComprobation.length > 0){
             console.log('Las contraseñas no coinciden')
             return (
-                setValidatePasswords(false)
+                setValidate(false)
             )
+        } else {
+            dispatch(addUser(name, alias, email, password))
         }
 
-        dispatch(addUser(name, alias, email, password))
     }
     
     return (
@@ -77,11 +79,11 @@ const SignUp = () => {
                     </label>
                 </div>
                 <div className="d-flex flex-column align-items-center justify-content-evenly">
-                    <button className="btn btn-danger rounded-pill mt-5" type="submit">Acceder</button>
+                    <button className="btn  rounded-pill mt-5" type="submit">Acceder</button>
                     <Link to='/logIn'><p className="mt-4 text-light linkLoginSignup">¿Ya tienes una cuenta?</p></Link>
                 </div>
             </form>
-            {!validatePasswords && <p className="mt-5">Las contraseñas no coinciden.</p>}
+            {validate === false && <p className="text-light">Las contraseñas no coinciden.</p>}
             {submited && <Navigate to='/login'/>}
         </div>
     )

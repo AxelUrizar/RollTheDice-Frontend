@@ -13,6 +13,7 @@ const LogIn = () => {
     const [validCredentials, setValidCredentials] = useState(true)
     
     const player = useSelector(state => state.player)
+    const users = useSelector(state => state.users)
     const dispatch = useDispatch()
     
     useEffect(() => {
@@ -28,8 +29,10 @@ const LogIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(playerLogin(alias, password))
+        const userComprobation = users.filter(user => user.alias === alias || user.password === password)
+        userComprobation.length > 0 ? dispatch(playerLogin(alias, password)) :setValidCredentials(false)
     }
+
     
     return (
         <div className="outletComponents container w-25 d-flex flex-column align-items-between justify-content-center">
@@ -38,7 +41,7 @@ const LogIn = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="container d-flex flex-column align-items-between justify-content-center" >
                         <label className="row m-2">
-                            <p className="col-6 text-light text-end pe-5 pt-1">E-mail:</p>
+                            <p className="col-6 text-light text-end pe-5 pt-1">Alias:</p>
                             <input className="col-6 rounded-pill py-1" name="alias" type='alias' required onChange={handleChangeAlias} />
                         </label>
                         <label className="row m-2">
@@ -47,12 +50,12 @@ const LogIn = () => {
                         </label>
                     </div>
                     <div className="d-flex flex-column align-items-center justify-content-evenly">
-                        <button className="btn btn-danger rounded-pill mt-5" type="submit">Acceder</button>
+                        <button className="btn  rounded-pill mt-5" type="submit">Acceder</button>
                         <Link to='/signUp'><p className="mt-4 text-light linkLoginSignup">¿No tienes una cuenta?</p></Link>
                     </div>
                 </form>
                 {submited && <Navigate to='/' />}
-                {!validCredentials && <p className="text-danger mt-5">Credenciales no válidas.</p>}
+                {validCredentials === false && <p className="text-danger mt-5">Credenciales no válidas.</p>}
 
             </div>
         </div>

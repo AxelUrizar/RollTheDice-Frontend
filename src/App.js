@@ -14,6 +14,7 @@ import { Profile } from './components/pages/usuarios/Profile'
 import LogIn from './components/pages/session/LogIn';
 import Error404 from './components/layout/Error404';
 import SignUp from './components/pages/session/SignUp';
+import { Game } from './components/pages/Games/Game';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ function App() {
           <Route path='signup' element={<SignUp />} />
 
           <Route path='perfil' element={<Profile />} />
+
+          <Route path='game' element={<Game />} />
 
           <Route path='*' element={<Error404 />} />
         </Route>

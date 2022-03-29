@@ -17,7 +17,7 @@ export const Profile = () => {
             <div className="container mt-5 d-flex flex-column justify-content-evenly">
                 <div className="row d-flex justify-content-center">
                     <div className="row col-8">
-                        <img src={perfil} alt='ImagenPerfil' className='rounded-circle col-4'/>
+                        <img src={perfil} alt='ImagenPerfil' className='rounded-circle col-4 shadow-sm'/>
                         <div className="col-6 d-flex flex-column align-items-start justify-content-center">
                             <div className="d-flex align-items-center justify-content-center my-2">
                                 <h4 className="m-0 ms-5 me-3">Nombre:</h4>

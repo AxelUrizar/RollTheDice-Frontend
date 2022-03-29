@@ -8,7 +8,6 @@ export const getPlayer = () => {
     return (dispatch) => {
         playerCalls.profile()
             .then(res => {
-                console.log(res.data)
                 dispatch(getPlayerSuccess(res.data))
             })
             .catch(err => console.log(err))
