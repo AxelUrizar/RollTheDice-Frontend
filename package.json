@@ -60,5 +60,8 @@
     "whitelist": [
       "API_URL_START"
     ]
+  },
+  "engines": {
+    "node": ">=16.14.0"
   }
 }
