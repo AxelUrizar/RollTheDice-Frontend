@@ -31,7 +31,7 @@ const LogIn = () => {
 
         const userComprobation = users.filter(user => user.alias === alias || user.password === password)
         userComprobation.length > 0 ? dispatch(playerLogin(alias, password)) :setValidCredentials(false)
-    }
+    } 
 
     
     return (
