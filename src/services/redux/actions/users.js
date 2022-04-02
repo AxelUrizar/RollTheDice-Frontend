@@ -1,3 +1,5 @@
+import toast from 'react-hot-toast';
+
 const usersCalls = require('../../axios/usersCalls')
 
 export const ADD_USER = 'ADD_USER';
@@ -7,11 +9,15 @@ export const FETCH_USERS = 'FETCH_USERS';
 export const fetchUsers = () => {
     return (dispatch) => {
         usersCalls.getUsers()
-            .then(res => {
-                console.log('hola')
-                dispatch(fetchUsersSuccess(res.data))
+            .then(res => dispatch(fetchUsersSuccess(res.data)))
+            .catch(err => {
+                console.log(err)
+                toast((t) => (
+                    <span>
+                        <p className='fw-bold'>Algo ha fallado!</p>
+                    </span>
+                ), {icon: '❌'})
             })
-            .catch(err => new Error(err))
     }
 }
             const fetchUsersSuccess = (users) => {
@@ -26,19 +32,21 @@ export const addUser = (name, alias, email, password) => {
         usersCalls.newUser(name, alias, email, password)
             .then(res => {
                 const user = res.data
-                dispatch(addUserSuccess(user.name, user.alias, user.email))
+                dispatch(addUserSuccess(user))
             })
-            .catch(err => new Error(err))
+            .catch(err => {
+                console.log(err)
+                toast((t) => (
+                    <span>
+                        <p className='fw-bold'>Algo ha fallado!</p>
+                    </span>
+                ), {icon: '❌'})
+            })
     }
 }
-            const addUserSuccess = (name, alias, email) => {
+            const addUserSuccess = (user) => {
                 return {
                     type: ADD_USER,
-                    payload: {
-                        name: name,
-                        alias: alias,
-                        email: email,
-                    
-                    }
+                    payload: user
                 }
             }
