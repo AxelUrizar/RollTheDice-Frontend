@@ -18,7 +18,7 @@ const LogIn = () => {
     
     useEffect(() => {
         if(player._id) setSubmited(true)
-    },[player])
+    })
 
     const handleChangeAlias = (e) => {
         setAlias(e.target.value)

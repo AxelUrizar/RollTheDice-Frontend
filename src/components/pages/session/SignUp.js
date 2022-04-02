@@ -83,7 +83,7 @@ const SignUp = () => {
                     <Link to='/logIn'><p className="mt-4 text-light linkLoginSignup">¿Ya tienes una cuenta?</p></Link>
                 </div>
             </form>
-            {validate === false && <p className="text-light">Las contraseñas no coinciden.</p>}
+            {validate === false && <p className="text-danger">Las contraseñas no coinciden.</p>}
             {submited && <Navigate to='/login'/>}
         </div>
     )

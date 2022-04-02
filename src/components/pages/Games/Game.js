@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { newGame } from "../../../services/redux/actions/games";
 
 export const Game = () => {
     const [rolls, setRolls] = useState([]);
@@ -7,7 +8,9 @@ export const Game = () => {
     const [botCounter, setBotCounter] = useState(0);
     const [winnerCheck, setWinnerCheck] = useState();
     const [gameEnded, setGameEnded] = useState(false);
+    const [counter, setCounter] = useState(0)
 
+    const dispatch = useDispatch()
     const player = useSelector(state => state.player)
     const imageRequire = (number) => require(`../../../img/skins/${player.selectedSkin.name}/${number}.png`)
 
@@ -38,23 +41,33 @@ export const Game = () => {
         setBotCounter(0);
         setWinnerCheck(undefined);
         setGameEnded(false);
+        setCounter(0)
     }
-
+    
+    
     useEffect(() => {
         if(playerCounter > 2 || botCounter > 2){
             setGameEnded(true)
-            playerCounter > botCounter ? setWinnerCheck('Win') : playerCounter < botCounter ? setWinnerCheck('Lose') : setWinnerCheck('Tie')
-            
-        }
+            if (playerCounter > botCounter) {
+                setWinnerCheck('Win')
+            } else if (playerCounter < botCounter) {
+                setWinnerCheck('Lose')
+            } else {
+                setWinnerCheck('Tie')
+            }
+        }     
+        
+        if (gameEnded === true && counter === 0) {
+            dispatch(newGame(rolls, winnerCheck, playerCounter, botCounter))
+            setCounter(1)
+        }   
+    })
 
-    }, [rolls])
-    
     return (
-        <div className="px-5">
-        {/* <div className="container"> */}
-            <h2>Game</h2>
-            <div className="d-flex align-items-start justify-content-center mt-4">
-                <div className="w-50">
+        <div className="px-5 w-100 h-100">
+            <h2 className="mb-5">Game</h2>
+            <div className="d-flex align-items-center justify-content-center mt-4">
+                <div className="w-50 align-self-start">
                     <h3>Tiradas</h3>
                     {rolls.length > 0 && rolls.map((roll, i) => {
                         return (
@@ -96,10 +109,10 @@ export const Game = () => {
                             <h4 className="purpleText">- El primero en llegar a 3 puntos ganará.</h4>
                         </li>
                         <li>
-                            <h4 className="purpleText">- Si ganas recibirás 15 puntos y 5 monedas.</h4>
+                            <h4 className="purpleText">- Si ganas recibirás 15 puntos y 25 monedas.</h4>
                         </li>
                         <li>
-                            <h4 className="purpleText">- Si pierdes perderás 15 puntos.</h4>
+                            <h4 className="purpleText">- Si pierdes perderás 10 puntos.</h4>
                         </li>
                         <li>
                             <h4 className="purpleText">- Si empatas no perderás puntos y ganarás 5 monedas.</h4>
