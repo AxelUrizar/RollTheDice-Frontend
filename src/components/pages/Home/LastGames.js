@@ -80,7 +80,7 @@ const LastGames = () => {
                         
                     })
                 }
-                {gamesHistory < 1 && <h3 className="mt-5">No hay partidas registradas</h3>}
+                {gamesHistory < 1 && <h3 className="mt-5">Cargando...</h3>}
             </ul>
         </div>
     )
