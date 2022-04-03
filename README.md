@@ -1,12 +1,13 @@
-# ProyectoBackend_BuscadorDePeliculas
+# ROLL THE DICE!
 
 Se trata de un minijuego en el que deberás lanzar dados contra un bot para ver quien logrará ganar así consiguiendo puntos con los que compararte en un ránking contra los demás jugadores y monedas con las que podrás comprar boosts o nuevas skins para tus dados en la tienda.
 
 ### App deployeada en Heroku
+<br/>
 
-[-- ROLL THE DICE --](https://roll-the-dice-app.herokuapp.com/)
+[Link a la página deployeada](https://roll-the-dice-app.herokuapp.com/)
 
-<br/> 
+<br>
 
 ### Instalación 🔧
 
