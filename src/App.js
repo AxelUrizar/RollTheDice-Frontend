@@ -9,7 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 import { getPlayer } from './services/redux/actions/player';
 
 import { Layout } from './components/layout/Layout';
-import { Home } from './components/layout/Home';
+import { Home } from './components/pages/Home/Home';
 import { Profile } from './components/pages/Users/Profile'
 import LogIn from './components/pages/Session/LogIn';
 import Error404 from './components/layout/Error404';
@@ -23,6 +23,7 @@ import { Toaster } from 'react-hot-toast';
 import GamesHistory from './components/pages/GamesHistory/GamesHistory';
 import UsuariosAdmin from './components/pages/Admin/UsuariosAdmin';
 import GameDetail from './components/pages/GamesHistory/GameDetail';
+import Proximamente from './components/layout/Proximamente';
 
 function App() {
   const dispatch = useDispatch();
@@ -53,9 +54,9 @@ function App() {
           <Route path='perfil/:id' element={<Profile />} />
           <Route path='perfil/:id/editar' element={<EditarPerfil />} />
 
-          {/* GamesHistoy endpoints */}
+          {/* GamesHistory endpoints */}
           <Route path='historial/:id' element={<GamesHistory />} />
-          <Route path='game/:gameId' element={<GameDetail />} />
+          <Route path='gameDetails/:gameId' element={<GameDetail />} />
           
           {/* Ranking endpoints */}
           <Route path='ranking' element={<Ranking />} />
@@ -63,6 +64,8 @@ function App() {
           {/* Game endpoints */}
           <Route path='game' element={<Game />} />
 
+          {/* Tienda endpoints */}
+          <Route path='tienda' element={<Proximamente />} />
           {/* 404 endpoints */}
           <Route path='*' element={<Error404 />} />
         </Route>

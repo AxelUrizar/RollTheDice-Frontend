@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate } from "react-router-dom"
 import { playerLogin } from "../../../services/redux/actions/player"
@@ -10,7 +11,6 @@ const LogIn = () => {
     const [alias, setAlias] = useState('')
     const [password, setPassword] = useState('')
     const [submited, setSubmited] = useState(false)
-    const [validCredentials, setValidCredentials] = useState(true)
     
     const player = useSelector(state => state.player)
     const users = useSelector(state => state.users)
@@ -30,7 +30,20 @@ const LogIn = () => {
         e.preventDefault();
 
         const userComprobation = users.filter(user => user.alias === alias || user.password === password)
-        userComprobation.length > 0 ? dispatch(playerLogin(alias, password)) :setValidCredentials(false)
+        if (userComprobation.length > 0) {
+            toast((t) => (
+                <span className='px-3'>
+                    <p className="fw-bold">Login completado!</p>
+                </span>
+            ), {icon: '✔'})
+            dispatch(playerLogin(alias, password))
+        } else {
+            toast((t) => (
+                <span className='px-3'>
+                    <p className="fw-bold">Credenciales no válidas</p>
+                </span>
+            ), {icon: '❌'})
+        }     
     } 
 
     
@@ -55,8 +68,6 @@ const LogIn = () => {
                     </div>
                 </form>
                 {submited && <Navigate to='/' />}
-                {validCredentials === false && <p className="text-danger mt-5">Credenciales no válidas.</p>}
-
             </div>
         </div>
     )

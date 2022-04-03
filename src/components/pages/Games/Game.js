@@ -65,8 +65,7 @@ export const Game = () => {
 
     return (
         <div className="px-5 w-100 h-100">
-            <h2 className="mb-5">Game</h2>
-            <div className="d-flex align-items-center justify-content-center mt-4">
+            <div className="d-flex align-items-center justify-content-center">
                 <div className="w-50 align-self-start">
                     <h3>Tiradas</h3>
                     {rolls.length > 0 && rolls.map((roll, i) => {

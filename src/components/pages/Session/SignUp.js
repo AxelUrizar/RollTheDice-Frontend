@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate } from "react-router-dom"
 import { addUser } from "../../../services/redux/actions/users"
@@ -8,9 +9,13 @@ const SignUp = () => {
     const [alias, setAlias] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const [validate, setValidate] = useState(true)
     const [submited, setSubmited] = useState(false)
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    const [validatePassword, setValidatePassword] = useState(true)
+    const [validateAlias, setValidateAlias] = useState(true)
+    const [validateEmail, setValidateEmail] = useState(true)
+
     
     const dispatch = useDispatch()
     const users = useSelector(state => state.users)
@@ -39,18 +44,48 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const userComprobation = users.filter(user => user.alias === alias || user.email === email)
+        const userComprobationAlias = users.filter(user => user.alias === alias)
+        const userComprobationEmail = users.filter(user => user.email === email)
 
-        if(password !== confirmPassword || userComprobation.length > 0){
-            console.log('Las contraseñas no coinciden')
-            return (
-                setValidate(false)
-            )
+        
+        if (password !== confirmPassword || userComprobationAlias.length > 0 || userComprobationEmail.length > 0) {    
+            if(userComprobationAlias.length > 0){
+                toast((t) => (
+                    <span className='px-3'>
+                        <p className="fw-bold">Alias no disponible</p>
+                    </span>
+                ), {icon: '❌'})
+            } 
+    
+            if(userComprobationEmail.length > 0){
+                toast((t) => (
+                    <span className='px-3'>
+                        <p className="fw-bold">Email no disponible</p>
+                    </span>
+                ), {icon: '❌'})
+            } 
+            if(password !== confirmPassword){
+                toast((t) => (
+                    <span className='px-3'>
+                        <p className="fw-bold">Las contraseñas no coinciden</p>
+                    </span>
+                ), {icon: '❌'})
+            }
         } else {
             dispatch(addUser(name, alias, email, password))
         }
 
     }
+
+    // useEffect(() => {
+    //     if (validateAlias === false || validatePassword === false || validateEmail === false) {
+    //         toast((t) => (
+    //             <span className='px-3'>
+    //                 <p className="fw-bold">Las contraseñas no coinciden</p>
+    //             </span>
+    //         ), {icon: '❌'})
+    //     }
+    // }, [validateAlias, validatePassword, validateEmail])
     
     return (
         <div className="d-flex container signup flex-column align-items-between justify-content-center outletComponents p-0">
@@ -83,7 +118,7 @@ const SignUp = () => {
                     <Link to='/logIn'><p className="mt-4 text-light linkLoginSignup">¿Ya tienes una cuenta?</p></Link>
                 </div>
             </form>
-            {validate === false && <p className="text-danger">Las contraseñas no coinciden.</p>}
+
             {submited && <Navigate to='/login'/>}
         </div>
     )

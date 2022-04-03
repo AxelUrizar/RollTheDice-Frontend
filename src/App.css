@@ -170,3 +170,15 @@ hr{
   position: relative;
   left: -20%;
 }
+
+.gold{
+  color: gold!important;
+}
+
+.silver{
+  color: rgb(208, 208, 208)!important;
+}
+
+.bronze{
+  color: rgb(181, 95, 9)!important;
+}
