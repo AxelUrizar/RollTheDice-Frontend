@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# ProyectoBackend_BuscadorDePeliculas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API con CRUD para la trata de un buscador de peliculas.
 
-## Available Scripts
+### App deployeada en Heroku
 
-In the project directory, you can run:
+[URL a la aplicación](https://roll-the-dice---api.herokuapp.com/)
 
-### `npm start`
+### Instalación 🔧
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+_Para instalar el proyecto deberás copiar en tu disco local el repositorio de GitHub con el siguiente comando:_
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+git clone https://github.com/AxelUrizar/RollTheDice-Backend.git
+```
 
-### `npm test`
+_Tras lo cual tendremos que installar las dependencias con:_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm install
+```
+o
 
-### `npm run build`
+```
+yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Y por último será necesario añadir las siguientes variables de entorno en un documento ".env".
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+PORT=(Puerto en el que deseas que se ejecute la aplicación)
+```
+```
+MONGO_URI=(Link para conectar a tu base de datos de MongoDB)
+```
+```
+JWT_SECRET=(Palabra clave para tus tokens)
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Ejecutando las pruebas ⚙️
 
-### `npm run eject`
+_Para probar el proyecto usaremos Postman mandando peticiones a todos los endpoints_
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Endpoints Usuarios:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Mostrar todos los usuarios: (GET "/users")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Registrar nuevo usuario: (POST "/users/newUser") y pasamos por body con formato JSON los datos del nuevo usuario.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Login a un usuario: (POST "/users/login") con lo que recibiremos un token para poder acceder a las funcionalidades como ver tu perfil o borrarlo.
 
-## Learn More
+* Mostrar tu perfil: (GET "users/profile") pasandole además un token de autentificación nos dejará acceder a nuestro perfil y ver nuestros datos.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Editar Alias: (PUT "/users/edit")Edita el Alias del usuario que lance la petición.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Logout Usuario: (DELETE "/users/logout") Borrará el token en uso del usuario que lance la petición.
 
-### Code Splitting
+* Logout All Usuario: (DELETE "/users/logoutAll") Borrará todos los tokens del usuario que lance la petición.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Endpoints Games: 
 
-### Analyzing the Bundle Size
+* Mostrar todas las partidas: (GET "/gamesHistory") Muestra todas las partidas guardadas en la base de datos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Mostrar partidas de un usuario: (GET "/gamesHistory/userHistory") Muestra las partidas guardadas de el usuario que lance la petición.
 
-### Making a Progressive Web App
+* Nueva partida: (POST "/gamesHistory/newGame") Crea una partida con los datos que  el usuario envía a la petición.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Endpoints Admin: 
 
-### Advanced Configuration
+* Editar alias usuario: (PUT "/admin/edit") Edita el alias de cualquier usuario que el administrador elija.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Construido con 🛠️
 
-### Deployment
+* Javascript
+* Node.js
+* MongoDB
+* Express
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Autores ✒️
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Axel Urizar** - [GitHub](https://github.com/AxelUrizar)
