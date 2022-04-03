@@ -55,7 +55,7 @@ function App() {
 
           {/* GamesHistoy endpoints */}
           <Route path='historial/:id' element={<GamesHistory />} />
-          <Route path='historial/:id/game/:gameId' element={<GameDetail />} />
+          <Route path='game/:gameId' element={<GameDetail />} />
           
           {/* Ranking endpoints */}
           <Route path='ranking' element={<Ranking />} />

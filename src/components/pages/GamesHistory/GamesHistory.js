@@ -55,7 +55,7 @@ const GamesHistory = () => {
                 {userHistory.length > 0 && 
                     userHistory.map((game, i) => {
                         return (
-                            <Link to={`game/${game._id}`} className='textHover' key={i}>
+                            <Link to={`/game/${game._id}`} className='textHover' key={i}>
                                 <li key={i} className="row my-3 rankingList">
                                     <h3 className="col">{game.playerCounter} - {game.botCounter}</h3>
                                     <h3 className={checkResult(game.finalResult, 'col')}>{game.finalResult}</h3>
