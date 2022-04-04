@@ -23,7 +23,7 @@ export const Profile = () => {
     const dispatch = useDispatch()
 
     const player = useSelector(state => state.player)
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state.users.list)
     const user = users.filter(user => user._id === id)  
     const gamesHistory = useSelector(state => state.gamesHistory)
     const userHistory = gamesHistory.filter((game => game.userId === id))    

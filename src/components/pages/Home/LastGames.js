@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const LastGames = () => {
     const gamesHistory = useSelector(state => state.gamesHistory)
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state.users.list)
 
     const getUser = (userId) => {
         const filtered = users.filter(user => user._id === userId)

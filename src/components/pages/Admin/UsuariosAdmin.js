@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const UsuariosAdmin = () => {
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state.users.list)
     const player = useSelector(state => state.player)
 
     const highlightPlayer = (id) => {

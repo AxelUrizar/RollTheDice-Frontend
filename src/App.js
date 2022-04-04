@@ -3,7 +3,7 @@ import "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from './services/redux/actions/users';
 import { Route, Routes } from 'react-router-dom';
 import { getPlayer } from './services/redux/actions/player';

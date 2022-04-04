@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom"
 import { useSelector } from "react-redux"
+import Loading from './Loading'
 
 import perfil from '../../img/foto-perfil.jpg'
 import { useEffect, useState } from "react"
@@ -9,6 +10,7 @@ export const Layout = () => {
     const [coins, setCoins] = useState(0)
     
     const player = useSelector(state => state.player)
+    const users = useSelector(state => state.users)
     
     useEffect(() => {
         setCoins(player.coins)
@@ -95,7 +97,7 @@ export const Layout = () => {
                     </div>
                 </nav>
                 <div className="content outletBody d-flex align-items-stretch justify-content-evenly flex-column  m-auto mt-2 mb-4 py-5">
-                    <Outlet />
+                    {users.loading === false && player._id ? <Outlet /> : <Loading />}
                 </div>
             </div>
         </div>

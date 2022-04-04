@@ -1,11 +1,26 @@
 import { UPDATE_PLAYER_ALIAS_ADMIN } from "../actions/admin";
 import { UPDATE_COINS_AND_POINTS, UPDATE_PLAYER_ALIAS } from "../actions/player";
-import { ADD_USER, FETCH_USERS } from "../actions/users";
+import { ADD_USER, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_FAILURE } from "../actions/users";
 
-const reducer = (state = [], action) => {
+const reducer = (state = {loading: true}, action) => {
     switch (action.type) {
-        case FETCH_USERS:
-            return action.payload;
+        case FETCH_USERS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case FETCH_USERS_SUCCESS:
+            return {
+                loading: false,
+                list: action.payload
+            }
+        
+        case FETCH_USERS_FAILURE:
+            return {
+                loading: false,
+                error: action.error
+            }
 
         case ADD_USER:
             return [

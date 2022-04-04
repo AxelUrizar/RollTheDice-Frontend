@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import LastGames from "./LastGames"
@@ -5,7 +6,7 @@ import TopPlayers from "./TopPlayers"
 
 export const Home = () => {
     const player = useSelector(state => state.player)
-    
+
     return (
         <div>
             <div className="col mb-5">
