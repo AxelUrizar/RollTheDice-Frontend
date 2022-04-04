@@ -100,7 +100,7 @@ export const updatePlayerAlias = (alias) => {
                 ), {icon: '✔'})
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
                 toast((t) => (
                     <span>
                         <p className='fw-bold'>Algo ha fallado!</p>

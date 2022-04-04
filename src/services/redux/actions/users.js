@@ -50,6 +50,11 @@ export const addUser = (name, alias, email, password) => {
             .then(res => {
                 const user = res.data
                 dispatch(addUserSuccess(user))
+                toast((t) => (
+                    <span>
+                        <p className='fw-bold'>Usuario creado!</p>
+                    </span>
+                ), {icon: '✔'})
             })
             .catch(err => {
                 console.log(err)

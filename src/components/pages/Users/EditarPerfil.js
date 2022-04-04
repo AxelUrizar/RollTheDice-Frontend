@@ -35,6 +35,7 @@ export const EditarPerfil = () => {
 
         if (user._id === player._id){
             if (alias === '') {
+
                 dispatch(updatePlayerAlias(user.alias))
         
                 toggleEditAlias()  

@@ -23,45 +23,57 @@ const reducer = (state = {loading: true}, action) => {
             }
 
         case ADD_USER:
-            return [
-                ...state,
-                action.payload
-            ];
+            return {
+                loading: false,
+                list: [
+                    ...state.list,
+                    action.payload
+                ]
+            };
         
         case UPDATE_COINS_AND_POINTS:
-            return state.map(user => {
-                if (user._id === action.payload._id){
-                    return {
-                        _id: user._id,
-                        name: user.name,
-                        alias: user.alias,
-                        email: user.email,
-                        password: user.password,
-                        rol: user.rol,
-                        points: action.payload.points,
-                        coins: action.payload.coins,
-                        selectedSkin: user.selectedSkin,
-                        skins: user.skins
+            return {
+                loading: false,
+                list: state.list.map(user => {
+                    if (user._id === action.payload._id){
+                        return {
+                            _id: user._id,
+                            name: user.name,
+                            alias: user.alias,
+                            email: user.email,
+                            password: user.password,
+                            rol: user.rol,
+                            points: action.payload.points,
+                            coins: action.payload.coins,
+                            selectedSkin: user.selectedSkin,
+                            skins: user.skins
+                        }
                     }
-                }
-                return user
-            })
+                    return user
+                })
+            }
 
         case UPDATE_PLAYER_ALIAS:
-            return state.map(user => {
-                if (user._id === action.payload._id){
-                    return action.payload
-                }
-                return user
-            })
+            return {
+                loading: false,
+                list: state.list.map(user => {
+                    if (user._id === action.payload._id){
+                        return action.payload
+                    }
+                    return user
+                })
+            }
         
         case UPDATE_PLAYER_ALIAS_ADMIN:
-            return state.map(user => {
-                if (user._id === action.payload._id){
-                    return action.payload
-                }
-                return user
-            })
+            return {
+                loading: false,
+                list: state.list.map(user => {
+                    if (user._id === action.payload._id){
+                        return action.payload
+                    }
+                    return user
+                })
+            }
 
         default:
             return state
