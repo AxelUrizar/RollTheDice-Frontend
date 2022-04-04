@@ -97,7 +97,7 @@ export const Layout = () => {
                     </div>
                 </nav>
                 <div className="content outletBody d-flex align-items-stretch justify-content-evenly flex-column  m-auto mt-2 mb-4 py-5">
-                    {users.loading === false && player._id ? <Outlet /> : <Loading />}
+                    {users.loading === false ? <Outlet /> : <Loading />}
                 </div>
             </div>
         </div>

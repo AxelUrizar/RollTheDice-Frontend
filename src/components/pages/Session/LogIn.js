@@ -13,7 +13,7 @@ const LogIn = () => {
     const [submited, setSubmited] = useState(false)
     
     const player = useSelector(state => state.player)
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state.users.list)
     const dispatch = useDispatch()
     
     useEffect(() => {

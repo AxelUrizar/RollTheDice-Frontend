@@ -18,7 +18,7 @@ const SignUp = () => {
 
     
     const dispatch = useDispatch()
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state.users.list)
 
     const usuario = users.filter(user => user.alias === alias)
     useEffect(() => {

@@ -8,7 +8,7 @@ export const EditarPerfil = () => {
     const {id} = useParams()
     // console.log(id)
     const player = useSelector(state => state.player)
-    const users = useSelector(state => state.users)
+    const users = useSelector(state => state.users.list)
     const usersFilter = users.filter(user => user._id === id)
     const user = usersFilter[0]
 
