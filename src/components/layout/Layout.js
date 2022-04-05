@@ -88,7 +88,7 @@ export const Layout = () => {
                                             <Link to='login'>Log In</Link>
                                         </li>
                                         <li className="nav-item textHover">
-                                            <Link to='ranking'>Ránking</Link>
+                                            <Link to='ranking'>Ranking</Link>
                                         </li>
                                     </ul>
                                 </div>

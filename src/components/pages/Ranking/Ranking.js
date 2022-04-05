@@ -47,7 +47,7 @@ export const Ranking = () => {
 
     return (
         <div className="w-100 h-100">
-            <h2>Ránking</h2>
+            <h2>Ranking</h2>
             <ul className="mt-5 px-4 mx-auto container row">
                 <li className="col-4 text-start">
                     <h3>Posición</h3>    
