@@ -37,7 +37,7 @@ export const Layout = () => {
                                             <Link to='tienda'>Tienda</Link>
                                         </li>
                                         <li className="nav-item textHover me-5">
-                                            <Link to='ranking'>Ránking</Link>
+                                            <Link to='ranking'>Ranking</Link>
                                         </li>
                                         <li className="nav-item textHover me-3">
                                             <Link to={`historial/${player._id}`}>Historial</Link>
