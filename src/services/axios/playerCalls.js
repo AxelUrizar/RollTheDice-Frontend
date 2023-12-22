@@ -3,7 +3,7 @@ import env from "react-dotenv";
 import authHeader from './auth-header'
 
 // const API_URL = env.API_URL_START + '/users';
-const API_URL = 'https://roll-the-dice---api.herokuapp.com/users'
+const API_URL = 'https://rtd-backend-wkka.onrender.com/users'
 
 export const signup = (name, alias, email, password) => {
     return axios.post(API_URL + '/newUser', {

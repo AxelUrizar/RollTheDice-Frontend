@@ -1,3 +1,3 @@
 window.env = {
-  "API_URL_START": "https://roll-the-dice---api.herokuapp.com"
+  "API_URL_START": "https://rtd-backend-wkka.onrender.com"
 };

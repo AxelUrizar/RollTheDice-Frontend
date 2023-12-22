@@ -77,7 +77,7 @@ const TopPlayers = () =>{
                 </ul>
                 <hr className="container" />
                 <ul className="container">
-                    {users.sort((a, b) => a.points > b.points ? -1 : 1).map((user, i) => {
+                    {users?.sort((a, b) => a.points > b.points ? -1 : 1).map((user, i) => {
                         if (i < 5) {
                             return(
                                 <Link to={`/perfil/${user._id}`} className='textHover' key={i}>

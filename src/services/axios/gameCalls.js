@@ -4,7 +4,7 @@ import authHeader from './auth-header'
 
 // Production API
 // const API_URL = env.API_URL_START + '';
-const API_URL = 'https://roll-the-dice---api.herokuapp.com/gamesHistory/'
+const API_URL = 'https://rtd-backend-wkka.onrender.com/gamesHistory/'
 
 // Developement API
 // const API_URL = 'localhost:2030/gamesHistory/'

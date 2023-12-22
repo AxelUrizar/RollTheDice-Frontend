@@ -20,9 +20,9 @@ const SignUp = () => {
     const dispatch = useDispatch()
     const users = useSelector(state => state.users.list)
 
-    const usuario = users.filter(user => user.alias === alias)
+    const usuario = users?.filter(user => user.alias === alias)
     useEffect(() => {
-        if(usuario.length > 0) setSubmited(true)
+        if(usuario?.length > 0) setSubmited(true)
     },[users])
 
     const handleChangeName = (e) => {
@@ -44,12 +44,12 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const userComprobationAlias = users.filter(user => user.alias === alias)
-        const userComprobationEmail = users.filter(user => user.email === email)
+        const userComprobationAlias = users?.filter(user => user.alias === alias)
+        const userComprobationEmail = users?.filter(user => user.email === email)
 
         
-        if (password !== confirmPassword || userComprobationAlias.length > 0 || userComprobationEmail.length > 0) {    
-            if(userComprobationAlias.length > 0){
+        if (password !== confirmPassword || userComprobationAlias?.length > 0 || userComprobationEmail?.length > 0) {    
+            if(userComprobationAlias?.length > 0){
                 toast((t) => (
                     <span className='px-3'>
                         <p className="fw-bold">Alias no disponible</p>
@@ -57,7 +57,7 @@ const SignUp = () => {
                 ), {icon: '❌'})
             } 
     
-            if(userComprobationEmail.length > 0){
+            if(userComprobationEmail?.length > 0){
                 toast((t) => (
                     <span className='px-3'>
                         <p className="fw-bold">Email no disponible</p>
