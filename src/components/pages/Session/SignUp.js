@@ -115,7 +115,6 @@ const SignUp = () => {
                 </div>
                 <div className="d-flex flex-column align-items-center justify-content-evenly">
                     <button className="btn  rounded-pill mt-5" type="submit">Acceder</button>
-                    <Link to='/RollTheDice-Frontend/login'><p className="mt-4 text-light linkLoginSignup">¿Ya tienes una cuenta?</p></Link>
                 </div>
             </form>
 
