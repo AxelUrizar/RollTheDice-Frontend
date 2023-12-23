@@ -5,7 +5,7 @@ Se trata de un minijuego en el que deberás lanzar dados contra un bot para ver 
 ### App deployeada en Heroku
 <br/>
 
-[Link a la página deployeada](https://roll-the-dice-app.herokuapp.com/)
+[Link a la página deployeada](https://axelurizar.github.io/RollTheDice-Frontend)
 
 <br>
 
