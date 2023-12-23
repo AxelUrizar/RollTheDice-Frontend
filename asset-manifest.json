@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/RollTheDice-Frontend/static/css/main.0082ea03.css",
-    "main.js": "/RollTheDice-Frontend/static/js/main.6a115c9a.js",
+    "main.js": "/RollTheDice-Frontend/static/js/main.400be3dc.js",
     "static/js/787.bb108571.chunk.js": "/RollTheDice-Frontend/static/js/787.bb108571.chunk.js",
     "static/media/foto-perfil.jpg": "/RollTheDice-Frontend/static/media/foto-perfil.e780cee1d6e5432bf52c.jpg",
     "static/media/6.png": "/RollTheDice-Frontend/static/media/6.89572509004300be1748.png",
     "static/media/5.png": "/RollTheDice-Frontend/static/media/5.b1e0d7c26dca183caeef.png",
     "index.html": "/RollTheDice-Frontend/index.html",
     "main.0082ea03.css.map": "/RollTheDice-Frontend/static/css/main.0082ea03.css.map",
-    "main.6a115c9a.js.map": "/RollTheDice-Frontend/static/js/main.6a115c9a.js.map",
+    "main.400be3dc.js.map": "/RollTheDice-Frontend/static/js/main.400be3dc.js.map",
     "787.bb108571.chunk.js.map": "/RollTheDice-Frontend/static/js/787.bb108571.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0082ea03.css",
-    "static/js/main.6a115c9a.js"
+    "static/js/main.400be3dc.js"
   ]
 }
