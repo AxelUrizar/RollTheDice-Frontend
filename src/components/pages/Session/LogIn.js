@@ -64,7 +64,7 @@ const LogIn = () => {
                     </div>
                     <div className="d-flex flex-column align-items-center justify-content-evenly">
                         <button className="btn  rounded-pill mt-5" type="submit">Acceder</button>
-                        <Link to='/signUp'><p className="mt-4 text-light linkLoginSignup">¿No tienes una cuenta?</p></Link>
+                        <Link to='/RollTheDice-Frontend/signup'><p className="mt-4 text-light linkLoginSignup">¿No tienes una cuenta?</p></Link>
                     </div>
                 </form>
                 {submited && <Navigate to='/' />}
